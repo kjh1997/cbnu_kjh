@@ -12,7 +12,15 @@
     <v-navigation-drawer
       v-model="drawer"
       app
+      dark
+      :src="require('@/assets/sidebar.jpg')"
     >
+    <template #img="props">
+      <v-img :gradient="gradient"
+      v-bind="props">
+
+      </v-img>
+    </template>
       <v-list-item>
         <v-list-item-content>
           <v-list-item-title class="text-h6">
@@ -27,7 +35,7 @@
       <v-divider />
 
       <v-list
-        dense
+
         nav
       >
         <v-list-item
@@ -35,6 +43,8 @@
           :key="item.title"
           link
           :to="item.to"
+          active-class="primary"
+          class="py-1"
         >
           <v-list-item-icon>
             <v-icon>{{ item.icon }}</v-icon>
@@ -66,6 +76,7 @@ export default {
           { title: 'GridSystem', icon: 'mdi-view-dashboard', to: '/GridSystem'},
           { title: 'GridListPage', icon: 'mdi-view-dashboard', to: '/GridListPage'},
           { title: 'Breakpoint', icon: 'mdi-view-dashboard', to: '/Breakpoint'},
+          { title: 'Typography', icon: 'mdi-view-dashboard', to: '/Typography'},
         ],
         right: null,
   }),
